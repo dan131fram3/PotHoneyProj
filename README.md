@@ -46,7 +46,7 @@ The following command will start and background the honeypot process for persist
 This won’t survive server reboots, so bare that in mind after restarting, the command will need to be reran.
 You can now confirm that the honeypot is up via the command ‘netstat -ano | head -n 20’ which should output various listening ports.
 
-Now the honeypot is ready to record attacks and also give the fake banner responses, but only on unprivilaged ports (port 1024+), and the current configuration uses ports 2323, 8080, and port 5544, although port 554 will be needed instead of 5544, to advertise itself as RTSP properly. This can be done via linux command line tool, **IPtables**, and using existing scripts by the author ‘foospidy’ called ‘ipt-kit’, can ease these changes for port redirection, which in this case will be 554 -> 5544.
+Now the honeypot is ready to record attacks and also give the fake banner responses, but only on unprivilaged ports (port 1024+), and the current configuration uses ports 2323, 8080, and port 5544, although port 554 will be needed instead of 5544, to advertise itself as RTSP properly. This can be done via a linux command line tool, **IPtables**, allowing to redirect any traffic from port 554 to port 5544 (The port which is actually being emulated) and using existing scripts by the author ‘foospidy’ called ‘ipt-kit’, can ease these changes for port redirection, which in this case will be 554 -> 5544.
 
 First, change to the user with sudo access, and change directory to the ipt-kit directory (This was created from unzipping file from earlier).
 
@@ -70,9 +70,13 @@ And enter ‘y’ to save.
 
 The honeypot should now have the ports 2323, 8080, and 554 visible to the network, and the honeypot will record all the requests.
 
-To open up the HoneyPot to the world, you will need to configure your router settings to allow traffic through ports 554, 2323 and 8080 (This is a security risk, so ensure you do so safely).
+To open up the HoneyPot to the world, you will need to configure your router settings to allow traffic through ports 554, 2323 and 8080 (This is a security risk, so ensure you do so safely). Opening ports on routers is out of scope for this project, as all routers are different (See your local router firewall settings).
 
 Now within just days, you will see many connection attempts if all is setup correctly. To check for requests before graphing, try:
+
+`tail /home/honeypot-user/HoneyPy-0.4.8/log/honeypy.log`
+
+This should show requests if any have been established. You can see the honeypot IP and port, and the attacking IP and port, unless 'services started' messages appear, in which case, no results have been logged.
 
 You can also test logging is working by using 'telnet' or 'nc' to the honeypot and port, e.g.
 
@@ -80,9 +84,7 @@ You can also test logging is working by using 'telnet' or 'nc' to the honeypot a
 
 Use `ctrl + ]` to quit telnet
 
-This will generate the log in the directory '/home/honeypot-user/HoneyPy-0.4.8/log/'
-
-`tail /home/honeypot-user/HoneyPy-0.4.8/log/honeypy.log`
+This will generate the log in the file '/home/honeypot-user/HoneyPy-0.4.8/log/honeypy.log'
 
 Also note, HoneyPy will create a new log file each day, and append the date on the file e.g. honeypy.log.2017_2_13, so look out for multiple log files.
 
@@ -98,6 +100,6 @@ Just execute the script to visualise any files in the current directory starting
 This will create the graph called ‘honeypot_port_results.png’. Note - there will need to be logged attacks against ports before the graph can be produced.
 
 
-
+#### Credits
 
 Credit to the author of HoneyPy, foospidy for the Honeypot, and all work is an adaptation of this (https://github.com/foospidy/HoneyPy).
