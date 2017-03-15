@@ -80,7 +80,7 @@ This should show requests if any have been established. You can see the honeypot
 
 You can also test logging is working by using 'telnet' or 'nc' to the honeypot and port, e.g.
 
-`telnet 192.168.0.50 2323'
+`telnet 192.168.0.50 2323`
 
 Use `ctrl + ]` to quit telnet
 
@@ -90,15 +90,14 @@ Also note, HoneyPy will create a new log file each day, and append the date on t
 
 ####Visualising the logs
 
-Once enough time has passed and request have been logged, you can run the visualisation script and view the number of requests against various ports, although you could just test for valid attempts this way too. For visualisation of logs once together, there is a script at HoneyPy-0.4.8/log/visualise.py which is built to produce a bar chart containing connection attempts for each port. 
+Once enough time has passed and requests have been logged, you can run the visualisation script and view the number of requests against various ports, although you could just test for valid attempts this way too. For visualisation of logs once together, there is a script at HoneyPy-0.4.8/log/visualise.py which is built to produce a bar chart containing connection attempts for each port. 
 Just execute the script to visualise any files in the current directory starting with ‘honeypy.log’.
 
 `cd /home/honeypot-user/HoneyPy-0.4.8/log/`
 
 `./visualise`
 
-This will create the graph called ‘honeypot_port_results.png’. Note - there will need to be logged attacks against ports before the graph can be produced.
-
+This will create the graph called ‘honeypot_port_results.png’. #####Note - there will need to be logged attacks against ports before the graph can be produced.
 
 #### Credits
 
