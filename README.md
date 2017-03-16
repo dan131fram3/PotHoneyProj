@@ -95,7 +95,7 @@ Just execute the script to visualise any files in the current directory starting
 
 `cd /home/honeypot-user/HoneyPy-0.4.8/log/`
 
-`./visualise`
+`./visualise` or `sudo ./visualise` if that doesn't work
 
 This will create the graph called ‘honeypot_port_results.png’. #####Note - there will need to be logged attacks against ports before the graph can be produced.
 
