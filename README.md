@@ -88,7 +88,7 @@ This will generate the log in the file '/home/honeypot-user/HoneyPy-0.4.8/log/ho
 
 Also note, HoneyPy will create a new log file each day, and append the date on the file e.g. honeypy.log.2017_2_13, so look out for multiple log files.
 
-####Visualising the logs
+#####Visualising the logs
 
 Once enough time has passed and requests have been logged, you can run the visualisation script and view the number of requests against various ports, although you could just test for valid attempts this way too. For visualisation of logs once together, there is a script at HoneyPy-0.4.8/log/visualise.py which is built to produce a bar chart containing connection attempts for each port. 
 Just execute the script to visualise any files in the current directory starting with ‘honeypy.log’.
@@ -97,7 +97,7 @@ Just execute the script to visualise any files in the current directory starting
 
 `./visualise` or `sudo ./visualise` if that doesn't work
 
-This will create the graph called ‘honeypot_port_results.png’. #####Note - there will need to be logged attacks against ports before the graph can be produced.
+This will create the graph called ‘honeypot_port_results.png’. **Note - there will need to be logged attacks against ports before the graph can be produced**.
 
 #### Credits
 
