@@ -99,6 +99,8 @@ Just execute the script to visualise any files in the current directory starting
 
 This will create the graph called ‘honeypot_port_results.png’. **Note - there will need to be logged attacks against ports before the graph can be produced**.
 
+To open this file while in the command line use `xdg-open honeypot` to view it
+
 #### Credits
 
 Credit to the author of HoneyPy, foospidy for the Honeypot, and all work is an adaptation of this (https://github.com/foospidy/HoneyPy).
